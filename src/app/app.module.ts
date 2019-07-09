@@ -10,6 +10,7 @@ import { MovieComponent } from './movie/movie.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieFavoriteComponent } from './movie-favorite/movie-favorite.component';
 import { AboutComponent } from './about/about.component';
+import { FormsModule } from '@angular/forms';
 // import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
     // MDBBootstrapModule.forRoot()
   ],
   providers: [],

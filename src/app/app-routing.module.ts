@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'movie', component: MovieComponent },
   { path: 'movie/:title', component: MovieDetailComponent },
   { path: 'movie-favorite', component: MovieFavoriteComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'about', component: AboutComponent }
 ];
 
 @NgModule({

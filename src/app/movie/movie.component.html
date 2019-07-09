@@ -2,15 +2,19 @@
   <div class="form-inline">
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" placeholder="Title"
+      <input [(ngModel)]="title" required value="{{title}}" type="text"
+        class="form-control" id="title"
+        placeholder="Title"
         name="title">
     </div>
     <div class="form-group">
       <label for="years">Years</label>
-      <input type="text" class="form-control" id="years" placeholder="2007"
+      <input [(ngModel)]="years" required type="text" class="form-control"
+        id="years"
+        placeholder="2007"
         name="years">
     </div>
-    <button type="button" class="btn btn-primary">Search</button>
+    <button type="button" class="btn btn-primary" (click)="fetchMovie(true)">Search</button>
   </div>
   <div class="row">
     <div class="col-md-2 col-xs-6" *ngFor="let list of movies">

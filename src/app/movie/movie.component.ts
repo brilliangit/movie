@@ -8,17 +8,25 @@ import { ApiService } from '../api.service';
 })
 export class MovieComponent implements OnInit {
   movies: Array<object> = []
+  title: string
+  years: string
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.fetchMovie()
+    this.fetchMovie(false)
   }
 
-  fetchMovie() {
+  fetchMovie(search: boolean) {
     let payload = {
       'i': 'tt3896198',
       'apikey': '2681e8d8'
     }
+    if (search) {
+      payload['t'] = this.title
+      payload['y'] = this.years
+      this.movies = []
+    }
+
     this.api.get(payload).subscribe(response => {
       if (response['Response'] === 'True') {
         for (let i = 0; i < 20; i++) {
