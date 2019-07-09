@@ -1,16 +1,30 @@
 <div class="container-fluid">
-  <!-- <p>
-    movie works!
-  </p>
-  <button class="btn btn-primary" (click)="fetchMovie()">Fetch movie</button> -->
+  <div class="form-inline">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Title"
+        name="title">
+    </div>
+    <div class="form-group">
+      <label for="years">Years</label>
+      <input type="text" class="form-control" id="years" placeholder="2007"
+        name="years">
+    </div>
+    <button type="button" class="btn btn-primary">Search</button>
+  </div>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2 col-xs-6" *ngFor="let list of movies">
       <div class="card">
-        <img src="https://m.media-amazon.com/images/M/MV5BMTg2MzI1MTg3OF5BMl5BanBnXkFtZTgwNTU3NDA2MTI@._V1_SX300.jpg"
+        <img
+          src="{{list.Poster}}"
           alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4><b>John Doe</b></h4>
-          <p>Architect & Engineer</p>
+        <div class="content">
+          <h4><b>{{list.Title}}</b></h4>
+          <p>
+            {{list.Plot}}
+          </p>
+          <button class="btn btn-warning btn-sm" [routerLink]="['/movie',
+            list.imdbID]">Selengkapnya..</button>
         </div>
       </div>
     </div>

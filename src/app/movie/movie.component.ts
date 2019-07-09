@@ -7,10 +7,11 @@ import { ApiService } from '../api.service';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-  movies: object = {}
+  movies: Array<object> = []
   constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.fetchMovie()
   }
 
   fetchMovie() {
@@ -20,9 +21,11 @@ export class MovieComponent implements OnInit {
     }
     this.api.get(payload).subscribe(response => {
       if (response['Response'] === 'True') {
-        this.movies = response;
+        for (let i = 0; i < 20; i++) {
+          this.movies.push(response)
+        }
       } else {
-        
+
       }
     })
   }
